@@ -1,0 +1,16 @@
+[Unit]
+Description=Create a verified HCMUTE ARS SQLite backup
+After=hcmute-ars.service
+
+[Service]
+Type=oneshot
+User=ars
+Group=ars
+WorkingDirectory=/opt/hcmute-ars
+EnvironmentFile=/opt/hcmute-ars/.env
+ExecStart=/opt/hcmute-ars/.venv/bin/python /opt/hcmute-ars/scripts/database_maintenance.py backup --directory /var/backups/hcmute-ars
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=true
+ReadWritePaths=/var/backups/hcmute-ars

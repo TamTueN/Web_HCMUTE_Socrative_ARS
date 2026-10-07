@@ -1,0 +1,22 @@
+[Unit]
+Description=HCMUTE ARS Flask application
+After=network.target
+
+[Service]
+Type=simple
+User=ars
+Group=ars
+WorkingDirectory=/opt/hcmute-ars
+EnvironmentFile=/opt/hcmute-ars/.env
+Environment=ENABLE_HARDWARE=1
+ExecStart=/opt/hcmute-ars/.venv/bin/gunicorn --workers 1 --threads 4 --timeout 120 --bind 127.0.0.1:5000 wsgi:app
+Restart=always
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=true
+ReadWritePaths=/opt/hcmute-ars
+
+[Install]
+WantedBy=multi-user.target

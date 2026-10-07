@@ -1,0 +1,6 @@
+flask
+paho-mqtt
+python-dotenv
+openpyxl
+pyserial
+gunicorn>=23,<24

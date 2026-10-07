@@ -1,0 +1,13 @@
+.env
+.venv/
+venv/
+node_modules/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+database.db
+database.db-shm
+database.db-wal
+backups/
+*.sqlite3
+*.sqlite3.tmp

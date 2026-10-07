@@ -1,0 +1,11 @@
+[Unit]
+Description=Daily HCMUTE ARS database backup
+
+[Timer]
+OnCalendar=daily
+Persistent=true
+RandomizedDelaySec=1800
+Unit=hcmute-ars-backup.service
+
+[Install]
+WantedBy=timers.target
